@@ -1,101 +1,37 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  /// Color Palette
+  // Colors
   static const Color primaryBlack = Color(0xFF0A0E27);
   static const Color darkGrey = Color(0xFF1A1F3A);
-  static const Color electricBlue = Color(0xFF0080FF);
+  static const Color mediumGrey = Color(0xFF2D3561);
+  static const Color lightGrey = Color(0xFF4A5578);
+  
   static const Color neonCyan = Color(0xFF00D9FF);
-  static const Color purpleGlow = Color(0xFFBB86FC);
-  static const Color accentOrange = Color(0xFFFF6B35);
-  static const Color successGreen = Color(0xFF00FF88);
-  static const Color warningYellow = Color(0xFFFFD600);
-  static const Color errorRed = Color(0xFFFF4081);
+  static const Color electricBlue = Color(0xFF0066FF);
+  static const Color vibrantPurple = Color(0xFF9D00FF);
+  static const Color neonGreen = Color(0xFF00FF88);
+  static const Color warmOrange = Color(0xFFFF6B00);
+  static const Color hotPink = Color(0xFFFF006E);
+  
+  static const Color successGreen = Color(0xFF00C853);
+  static const Color warningOrange = Color(0xFFFF9100);
+  static const Color errorRed = Color(0xFFFF3D00);
 
   static ThemeData get darkTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-      scaffoldBackgroundColor: primaryBlack,
       primaryColor: electricBlue,
-      colorScheme: const ColorScheme.dark(
-        primary: electricBlue,
-        secondary: neonCyan,
-        tertiary: purpleGlow,
-        surface: darkGrey,
-        background: primaryBlack,
-        error: errorRed,
-      ),
+      scaffoldBackgroundColor: primaryBlack,
       appBarTheme: const AppBarTheme(
         backgroundColor: primaryBlack,
         elevation: 0,
         centerTitle: true,
         titleTextStyle: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
           color: neonCyan,
-          fontFamily: 'Orbitron',
-        ),
-      ),
-      textTheme: const TextTheme(
-        displayLarge: TextStyle(
-          fontSize: 32,
-          fontWeight: FontWeight.bold,
-          color: neonCyan,
-          fontFamily: 'Orbitron',
-        ),
-        displayMedium: TextStyle(
-          fontSize: 28,
-          fontWeight: FontWeight.bold,
-          color: electricBlue,
-          fontFamily: 'Orbitron',
-        ),
-        displaySmall: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-          color: purpleGlow,
-          fontFamily: 'Orbitron',
-        ),
-        headlineMedium: TextStyle(
           fontSize: 20,
-          fontWeight: FontWeight.w600,
-          color: neonCyan,
-          fontFamily: 'SpaceGrotesk',
-        ),
-        headlineSmall: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
-          color: electricBlue,
-          fontFamily: 'SpaceGrotesk',
-        ),
-        bodyLarge: TextStyle(
-          fontSize: 16,
-          color: Colors.white,
-          fontFamily: 'SpaceGrotesk',
-        ),
-        bodyMedium: TextStyle(
-          fontSize: 14,
-          color: Colors.white70,
-          fontFamily: 'SpaceGrotesk',
-        ),
-        labelLarge: TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.w600,
-          color: neonCyan,
-          fontFamily: 'SpaceGrotesk',
-        ),
-      ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: electricBlue,
-          foregroundColor: Colors.white,
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-          textStyle: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'SpaceGrotesk',
-          ),
+          fontWeight: FontWeight.bold,
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
@@ -107,19 +43,77 @@ class AppTheme {
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: darkGrey),
+          borderSide: const BorderSide(color: mediumGrey),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: neonCyan, width: 2),
         ),
-        labelStyle: const TextStyle(color: neonCyan),
-        hintStyle: const TextStyle(color: Colors.white30),
+        labelStyle: const TextStyle(color: lightGrey),
+        hintStyle: const TextStyle(color: mediumGrey),
       ),
-      cardTheme: CardTheme(
-        color: darkGrey,
-        elevation: 8,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: electricBlue,
+          foregroundColor: Colors.white,
+          textStyle: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 1.5,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
+      ),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          foregroundColor: electricBlue,
+          side: const BorderSide(color: electricBlue),
+          textStyle: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
+      ),
+      textTheme: const TextTheme(
+        displayLarge: TextStyle(
+          fontSize: 36,
+          fontWeight: FontWeight.bold,
+          color: neonCyan,
+          letterSpacing: 2,
+        ),
+        displayMedium: TextStyle(
+          fontSize: 28,
+          fontWeight: FontWeight.bold,
+          color: electricBlue,
+        ),
+        headlineMedium: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+          color: neonCyan,
+        ),
+        headlineSmall: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+          color: Colors.white,
+        ),
+        bodyLarge: TextStyle(
+          fontSize: 16,
+          color: Colors.white,
+        ),
+        bodyMedium: TextStyle(
+          fontSize: 14,
+          color: lightGrey,
+        ),
+        labelLarge: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+          color: neonCyan,
+        ),
       ),
     );
   }

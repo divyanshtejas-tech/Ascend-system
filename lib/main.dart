@@ -1,46 +1,46 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'config/firebase_options.dart';
-import 'config/router.dart';
 import 'config/theme.dart';
-import 'core/di/injection_container.dart';
+import 'presentation/screens/auth/login_screen.dart';
+import 'presentation/screens/auth/register_screen.dart';
+import 'presentation/screens/auth/onboarding_screen.dart';
+import 'presentation/screens/home/home_screen.dart';
+import 'presentation/screens/workout/workout_screen.dart';
+import 'presentation/screens/study/study_screen.dart';
+import 'presentation/screens/diet/diet_screen.dart';
+import 'presentation/screens/achievements/achievements_screen.dart';
+import 'presentation/screens/shop/shop_screen.dart';
+import 'presentation/screens/profile/profile_screen.dart';
+import 'presentation/screens/settings/settings_screen.dart';
 
-future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  /// Initialize Firebase
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-
-  /// Initialize Hive for local storage
-  await Hive.initFlutter();
-
-  /// Initialize dependency injection
-  setupInjection();
-
-  runApp(
-    const ProviderScope(
-      child: AscendSystemApp(),
-    ),
-  );
+  // Initialize Firebase and other dependencies
+  runApp(const ProviderScope(child: MyApp()));
 }
 
-/// Root widget for ASCEND SYSTEM
-class AscendSystemApp extends StatelessWidget {
-  const AscendSystemApp({Key? key}) : super(key: key);
+class MyApp extends ConsumerWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp.router(
+  Widget build(BuildContext context, WidgetRef ref) {
+    return MaterialApp(
       title: 'ASCEND SYSTEM',
-      debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTheme,
-      routerDelegate: appRouter.routerDelegate,
-      routeInformationParser: appRouter.routeInformationParser,
-      routeInformationProvider: appRouter.routeInformationProvider,
+      home: const LoginScreen(),
+      routes: {
+        '/login': (context) => const LoginScreen(),
+        '/register': (context) => const RegisterScreen(),
+        '/onboarding': (context) => const OnboardingScreen(),
+        '/home': (context) => const HomeScreen(),
+        '/workout': (context) => const WorkoutScreen(),
+        '/study': (context) => const StudyScreen(),
+        '/diet': (context) => const DietScreen(),
+        '/achievements': (context) => const AchievementsScreen(),
+        '/shop': (context) => const ShopScreen(),
+        '/profile': (context) => const ProfileScreen(),
+        '/settings': (context) => const SettingsScreen(),
+      },
     );
   }
 }
