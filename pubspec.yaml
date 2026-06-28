@@ -1,0 +1,103 @@
+name: ascend_system
+description: A futuristic RPG-inspired fitness and self-improvement app with gamification, workout tracking, and study management.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  riverpod: ^2.4.0
+  flutter_riverpod: ^2.4.0
+  riverpod_generator: ^2.3.0
+
+  # Navigation
+  go_router: ^13.0.0
+
+  # UI & Material
+  flutter_animate: ^4.2.0
+  lottie: ^2.7.0
+  rive: ^0.13.0
+  google_fonts: ^6.1.0
+
+  # Firebase
+  firebase_core: ^2.24.0
+  firebase_auth: ^4.15.0
+  cloud_firestore: ^4.14.0
+  firebase_storage: ^11.5.0
+  firebase_messaging: ^14.7.0
+  firebase_analytics: ^10.7.0
+
+  # Local Storage
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  shared_preferences: ^2.2.2
+
+  # Google Sign In
+  google_sign_in: ^6.1.5
+
+  # HTTP & API
+  dio: ^5.3.1
+  http: ^1.1.0
+
+  # Date & Time
+  intl: ^0.19.0
+
+  # Utils
+  get_it: ^7.6.0
+  logger: ^2.0.1
+  connectivity_plus: ^5.0.2
+  device_info_plus: ^9.1.0
+
+  # Charts
+  fl_chart: ^0.65.0
+
+  # Image Caching
+  cached_network_image: ^3.3.0
+
+  # Animation
+  simple_animations: ^5.0.2
+
+  # 3D Models
+  model_viewer_plus: ^2.12.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+  build_runner: ^2.4.6
+  hive_generator: ^2.0.0
+  riverpod_generator: ^2.3.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/animations/
+    - assets/models/
+    - assets/sounds/
+    - assets/icons/
+
+  fonts:
+    - family: Orbitron
+      fonts:
+        - asset: assets/fonts/Orbitron-Black.otf
+          weight: 900
+        - asset: assets/fonts/Orbitron-Bold.otf
+          weight: 700
+        - asset: assets/fonts/Orbitron-Regular.otf
+          weight: 400
+
+    - family: SpaceGrotesk
+      fonts:
+        - asset: assets/fonts/SpaceGrotesk-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/SpaceGrotesk-Regular.ttf
+          weight: 400
